@@ -20,4 +20,15 @@ class UserInfiniteLoadingController extends Controller
 
         return view('user.list', compact('users'));
     }
+    
+    public function userListOnScroll(Request $request){
+        $users = User::paginate(10);
+
+        if($request->ajax()){
+            $view = view('ajax.user', compact('users'))->render();
+            return response()->json(['html' => $view]);
+        }
+
+        return view('user.scroll', compact('users'));
+    }
 }

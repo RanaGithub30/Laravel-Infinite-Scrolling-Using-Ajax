@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('user-list', [UserInfiniteLoadingController::class, 'userList'])->name('user.list');
+Route::get('user-list-on-scroll', [UserInfiniteLoadingController::class, 'userListOnScroll'])->name('user.list.on.scroll');
